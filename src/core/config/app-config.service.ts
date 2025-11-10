@@ -51,4 +51,21 @@ export class AppConfigService {
   get apiUrl(): string {
     return this.config.API_URL;
   }
+
+  /** JWT Accessors */
+  get jwtSecret(): string {
+    return this.config.JWT.JWT_SECRET;
+  }
+
+  get jwtExpiresIn(): string {
+    return this.config.JWT.JWT_EXPIRES_IN;
+  }
+
+  get jwtRefreshSecret(): string {
+    return this.config.JWT.JWT_REFRESH_SECRET;
+  }
+
+  get jwtRefreshExpiresIn(): string {
+    return this.config.JWT.JWT_REFRESH_EXPIRES_IN;
+  }
 }

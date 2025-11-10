@@ -24,4 +24,9 @@ export const envValidationSchema = Joi.object({
   // Network & Security
   CORS_ORIGIN: Joi.string().default('*'),
   API_URL: Joi.string().uri().allow('').default('https://api.spendo.com'),
+  // JWT
+  JWT_SECRET: Joi.string().default('defaultSecret'),
+  JWT_EXPIRES_IN: Joi.string().default('1d'),
+  JWT_REFRESH_SECRET: Joi.string().default('refreshSecret'),
+  JWT_REFRESH_EXPIRES_IN: Joi.string().default('7d'),
 });

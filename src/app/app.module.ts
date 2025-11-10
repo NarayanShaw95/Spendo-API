@@ -1,6 +1,6 @@
 // src/app/app.module.ts
 import { Module } from '@nestjs/common';
-import { APP_INTERCEPTOR } from '@nestjs/core';
+import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { ConfigModule } from '@nestjs/config';
 import appConfig from '@spendo/config/app.config';
 import { envValidationSchema } from '@spendo/config/env.validation';
@@ -10,6 +10,7 @@ import { ResponseInterceptor } from '@spendo/interceptors/response.interceptor';
 import { AppConfigService } from '@spendo/config/app-config.service';
 import { AppService } from './app.service';
 import { PrismaModule } from '@spendo/prisma/prisma.module';
+import { HttpExceptionFilter } from '@spendo/common/filters/http-exception.filter';
 
 @Module({
   imports: [
@@ -28,6 +29,10 @@ import { PrismaModule } from '@spendo/prisma/prisma.module';
     {
       provide: APP_INTERCEPTOR,
       useClass: ResponseInterceptor,
+    },
+    {
+      provide: APP_FILTER,
+      useClass: HttpExceptionFilter,
     },
   ],
 })

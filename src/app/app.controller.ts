@@ -1,14 +1,10 @@
 // src/app/app.controller.ts
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
-import { PrismaService } from '@spendo/prisma/prisma.service';
 
 @Controller()
 export class AppController {
-  constructor(
-    private readonly appService: AppService,
-    private readonly prisma: PrismaService,
-  ) {}
+  constructor(private readonly appService: AppService) {}
 
   @Get()
   getHello() {
@@ -17,11 +13,6 @@ export class AppController {
 
   @Get('health')
   async healthCheck() {
-    const result = await this.prisma.queryRaw<{ now: Date }>('SELECT NOW();');
-
-    return {
-      status: 'ok',
-      dbTime: result?.[0]?.now ?? null,
-    };
+    return await this.appService.healthCheck();
   }
 }

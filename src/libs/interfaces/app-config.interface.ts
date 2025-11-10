@@ -10,4 +10,10 @@ export interface IAppConfig {
   ENABLE_SWAGGER: boolean;
   CORS_ORIGIN: string;
   API_URL: string;
+  JWT: {
+    JWT_SECRET: string;
+    JWT_EXPIRES_IN: string;
+    JWT_REFRESH_SECRET: string;
+    JWT_REFRESH_EXPIRES_IN: string;
+  };
 }
