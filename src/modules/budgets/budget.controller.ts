@@ -1,0 +1,7 @@
+// src/modules/budgets/budget.controller.ts
+import { Controller } from '@nestjs/common';
+
+@Controller('budgets')
+export class BudgetController {
+  constructor() {}
+}

@@ -11,6 +11,15 @@ import { AppConfigService } from '@spendo/config/app-config.service';
 import { AppService } from './app.service';
 import { PrismaModule } from '@spendo/prisma/prisma.module';
 import { HttpExceptionFilter } from '@spendo/common/filters/http-exception.filter';
+import { AuthModule } from '@spendo/modules/auth/auth.module';
+import { AdminModule } from '@spendo/modules/admin/admin.module';
+import { BudgetModule } from '@spendo/modules/budgets/budget.module';
+import { CategoryModule } from '@spendo/modules/categories/category.module';
+import { GoalModule } from '@spendo/modules/goals/goal.module';
+import { InvestmentModule } from '@spendo/modules/investments/investment.module';
+import { ReportModule } from '@spendo/modules/reports/report.module';
+import { TransactionModule } from '@spendo/modules/transactions/transaction.module';
+import { UserModule } from '@spendo/modules/users/user.module';
 
 @Module({
   imports: [
@@ -20,6 +29,15 @@ import { HttpExceptionFilter } from '@spendo/common/filters/http-exception.filte
       validationSchema: envValidationSchema,
     }),
     PrismaModule,
+    AdminModule,
+    AuthModule,
+    BudgetModule,
+    CategoryModule,
+    GoalModule,
+    InvestmentModule,
+    ReportModule,
+    TransactionModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [

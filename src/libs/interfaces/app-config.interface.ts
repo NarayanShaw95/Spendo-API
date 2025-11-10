@@ -1,4 +1,5 @@
 // src/libs/interfaces/app-config.interface.ts
+
 export interface IAppConfig {
   ENV: string;
   DATABASE_URL: string;
