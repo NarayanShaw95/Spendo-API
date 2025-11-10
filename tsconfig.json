@@ -13,13 +13,47 @@
     "target": "ES2023",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
+    "types": ["node"],
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "noFallthroughCasesInSwitch": false,
+
+    // Paths for absolute imports
+    "baseUrl": "./src",
+    "paths": {
+      "@spendo/app/*": ["app/*"],
+      // Core paths
+      "@spendo/config/*": ["core/config/*"],
+      "@spendo/common/*": ["core/common/*"],
+      "@spendo/constants/*": ["core/common/constants/*"],
+      "@spendo/decorators/*": ["core/common/decorators/*"],
+      "@spendo/filters/*": ["core/common/filters/*"],
+      "@spendo/guards/*": ["core/common/guards/*"],
+      "@spendo/interceptors/*": ["core/common/interceptors/*"],
+      "@spendo/middleware/*": ["core/common/middleware/*"],
+      "@spendo/prisma/*": ["core/database/prisma/*"],
+      "@spendo/entities/*": ["core/database/entities/*"],
+      "@spendo/repositories/*": ["core/database/repositories/*"],
+      "@spendo/logger/*": ["core/shared/logger/*"],
+      "@spendo/mailer/*": ["core/shared/mailer/*"],
+      "@spendo/cache/*": ["core/shared/cache/*"],
+      "@spendo/jobs/*": ["core/shared/jobs/*"],
+      "@spendo/processors/*": ["core/shared/jobs/processors/*"],
+      "@spendo/reports/*": ["core/shared/reports/*"],
+      // Libs paths
+      "@spendo/dtos/*": ["libs/dtos/*"],
+      "@spendo/interfaces/*": ["libs/interfaces/*"],
+      "@spendo/enums/*": ["libs/enums/*"],
+      "@spendo/types/*": ["libs/types/*"],
+      "@spendo/utils/*": ["libs/utils/*"],
+      // Modules paths
+      "@spendo/modules/*": ["modules/*"],
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts"],
+  "exclude": ["node_modules", "dist", "test"]
 }
